@@ -102,7 +102,7 @@ class VimeoVideos
      */
     private static function getHttpClient()
     {
-        return new GuzzleHttp\Client([
+        return new \GuzzleHttp\Client([
             'base_uri' => 'https://api.vimeo.com',
             'timeout' => 5.0,
             'headers' => [
