@@ -26,7 +26,7 @@ class VimeoVideos
 
     public static function getVideo($id)
     {
-        if (is_null(static::getToken())) {
+        if (!is_numeric($id) || is_null(static::getToken())) {
             return null;
         }
 
@@ -44,11 +44,7 @@ class VimeoVideos
                 'link' => $file->link,
                 'quality' => $file->quality
             ];
-        },
-            array_filter($video->files, function ($file) {
-                return $file->quality === 'hd' || $file->quality === 'hls';
-            })
-        );
+        }, $video->files);
         return [
             'id' => $id,
             'name' => $video->name,

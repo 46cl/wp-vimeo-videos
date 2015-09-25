@@ -10,6 +10,3 @@ Author URI:  http://46cl.fr
 
 require_once __DIR__ . '/vendor/autoload.php';
 Qscl\VimeoVideos\VimeoVideos::load();
-
-$video = Qscl\VimeoVideos\VimeoVideos::getVideo("117822953");
-error_log(json_encode($video));
